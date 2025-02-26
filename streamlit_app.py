@@ -9,7 +9,7 @@ with st.sidebar.expander('Time'):
 st.sidebar.subheader('Columns')
 col1, col2 = st.sidebar.columns(2)
 with col1:
-    option_1 = st.selectbox(’Please select option 1',['A','B'])
+    option_1 = st.selectbox('Please select option 1',['A','B'])
 with col2:
     option_2 = st.radio('Please select option 2',['A','B'])
 #Container in sidebar
