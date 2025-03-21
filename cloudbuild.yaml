@@ -4,14 +4,16 @@ steps:
     args:
       - "-c"
       - |
-        if [ "$BRANCH_NAME" = "main" ]; then
-          gcloud app deploy app.prod.yaml --quiet; #< change this if you have a different name for 'app.prod.yaml'
-        elif [ "$BRANCH_NAME" = "dev" ]; then
+        if [ "${_BRANCH_NAME}" = "main" ]; then
+          gcloud app deploy app.prod.yaml --quiet; # Change this if your production config has a different name
+        elif [ "${_BRANCH_NAME}" = "dev" ]; then
           gcloud app deploy app.dev.yaml --quiet;
         else
-          echo "Branch not configured for deployment";
+          echo "Branch '${_BRANCH_NAME}' not configured for deployment";
+          exit 1
         fi
 substitutions:
   _BRANCH_NAME: "${BRANCH_NAME}"
+
 options:
   logging: NONE
