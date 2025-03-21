@@ -5,7 +5,7 @@ steps:
       - "-c"
       - |
         if [ "$BRANCH_NAME" = "main" ]; then
-          gcloud app deploy app.prod.yaml --quiet; #< change this if you have a different name for 'app.prod.yaml'
+          gcloud app deploy app.prod.yaml --quiet;
         elif [ "$BRANCH_NAME" = "dev" ]; then
           gcloud app deploy app.dev.yaml --quiet;
         else
